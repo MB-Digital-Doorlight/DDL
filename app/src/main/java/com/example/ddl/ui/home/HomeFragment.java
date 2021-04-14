@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -30,13 +31,15 @@ public class HomeFragment extends Fragment {
 
     private ImageView imageView;
     private Button button2;
+    private ImageButton imageButton2;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         imageView = root.findViewById(R.id.imageView);
         button2 = root.findViewById(R.id.button2);
-        button2.setOnClickListener(new View.OnClickListener() {
+        imageButton2 = root.findViewById(R.id.imageButton2);
+        imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectImage(getContext());
@@ -80,7 +83,7 @@ public class HomeFragment extends Fragment {
                 case 0:
                     if (resultCode == RESULT_OK && data != null) {
                         Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
-                        imageView.setImageBitmap(selectedImage);
+                        imageButton2.setImageBitmap(selectedImage);
                     }
 
                     break;
@@ -95,7 +98,7 @@ public class HomeFragment extends Fragment {
                                 cursor.moveToFirst();
                                 int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                                 String picturePath = cursor.getString(columnIndex);
-                                imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+                                imageButton2.setImageBitmap(BitmapFactory.decodeFile(picturePath));
                                 cursor.close();
                             }
                         }
