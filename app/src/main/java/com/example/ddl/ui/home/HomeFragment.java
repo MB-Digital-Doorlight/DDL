@@ -15,21 +15,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.ddl.R;
 
-import static android.app.Activity.RESULT_OK;
 import static android.app.Activity.RESULT_CANCELED;
+import static android.app.Activity.RESULT_OK;
 
 
 public class HomeFragment extends Fragment {
 
 
-    private ImageView imageView;
     private Button button2;
     private ImageButton imageButton2;
 
