@@ -53,7 +53,6 @@ public class DashboardFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Globals.vorschau=Globals.getBitmapFromVectorDrawable(getContext(), R.drawable.stern);
                 imageView.setImageResource(R.drawable.stern);
                 Globals.reset=true;
             }
@@ -111,8 +110,8 @@ public class DashboardFragment extends Fragment {
                 case 0:
                     if (resultCode == RESULT_OK && data != null) {
                         Globals.vorschau = (Bitmap) data.getExtras().get("data");
-                        Globals.reset=false;
                         imageView.setImageBitmap(Globals.vorschau);
+                        Globals.reset=false;
                     }
 
                     break;
@@ -128,8 +127,8 @@ public class DashboardFragment extends Fragment {
                                 int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                                 String picturePath = cursor.getString(columnIndex);
                                 Globals.vorschau=BitmapFactory.decodeFile(picturePath);
-                                Globals.reset=false;
                                 imageView.setImageBitmap(Globals.vorschau);
+                                Globals.reset=false;
                                 cursor.close();
                             }
                         }
