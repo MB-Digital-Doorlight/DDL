@@ -7,42 +7,27 @@
     tools:context=".ui.home.HomeFragment">
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="112dp"
-        android:layout_height="57dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.033" />
-
     <Button
         android:id="@+id/button2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="232dp"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.642" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/imageButton2"
-        android:layout_width="393dp"
-        android:layout_height="393dp"
-        android:background="#FFFFFF"
+        android:layout_width="340dp"
+        android:layout_height="333dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="140dp"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:src="@drawable/stern"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.854" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

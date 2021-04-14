@@ -36,7 +36,6 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        imageView = root.findViewById(R.id.imageView);
         button2 = root.findViewById(R.id.button2);
         imageButton2 = root.findViewById(R.id.imageButton2);
         imageButton2.setOnClickListener(new View.OnClickListener() {
