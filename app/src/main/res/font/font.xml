@@ -7,6 +7,6 @@
         android:font="@font/mbcorpos"
         app:fontStyle="normal"
         app:fontWeight="400"
-        app:font="@font/mbcorposofficebold"
+        app:font="@font/mbcorpos"
         />
 </font-family>
