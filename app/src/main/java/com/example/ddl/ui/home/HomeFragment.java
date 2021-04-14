@@ -14,7 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -29,14 +29,17 @@ public class HomeFragment extends Fragment {
 
 
     private Button button2;
-    private ImageButton imageButton2;
+    private Button button3;
+    private ImageView imageView;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         button2 = root.findViewById(R.id.button2);
-        imageButton2 = root.findViewById(R.id.imageButton2);
-        imageButton2.setOnClickListener(new View.OnClickListener() {
+        button3 = root.findViewById(R.id.button3);
+        imageView=root.findViewById(R.id.imageView2);
+        button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectImage(getContext());
@@ -80,22 +83,26 @@ public class HomeFragment extends Fragment {
                 case 0:
                     if (resultCode == RESULT_OK && data != null) {
                         Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
-                        imageButton2.setImageBitmap(selectedImage);
+                        imageView.setImageBitmap(selectedImage);
                     }
 
                     break;
                 case 1:
                     if (resultCode == RESULT_OK && data != null) {
+
                         Uri selectedImage =  data.getData();
                         String[] filePathColumn = {MediaStore.Images.Media.DATA};
                         if (selectedImage != null) {
+
                             Cursor cursor = getContext().getContentResolver().query(selectedImage,
                                     filePathColumn, null, null, null);
                             if (cursor != null) {
+
                                 cursor.moveToFirst();
                                 int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                                 String picturePath = cursor.getString(columnIndex);
-                                imageButton2.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+
+                                imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
                                 cursor.close();
                             }
                         }

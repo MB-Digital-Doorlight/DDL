@@ -4,7 +4,7 @@
     <font
         android:fontStyle="normal"
         android:fontWeight="400"
-        android:font="@font/mbcorposofficebold"
+        android:font="@font/mbcorpos"
         app:fontStyle="normal"
         app:fontWeight="400"
         app:font="@font/mbcorposofficebold"
