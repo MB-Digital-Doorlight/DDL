@@ -3,19 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_dashboard">
+    app:startDestination="@+id/navigation_hochladen">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_galerie"
         android:name="com.example.ddl.ui.galerie.GalerieFragment"
         android:label="Galerie"
-        tools:layout="@layout/fragment_hochladen" />
+        tools:layout="@layout/fragment_galerie" >
+        <action
+            android:id="@+id/action_navigation_galerie_to_navigation_hochladen"
+            app:destination="@id/navigation_hochladen" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_hochladen"
         android:name="com.example.ddl.ui.hochladen.HochladenFragment"
         android:label="Hochladen"
-        tools:layout="@layout/fragment_galerie" />
+        tools:layout="@layout/fragment_hochladen" />
 
     <fragment
         android:id="@+id/navigation_notifications"

@@ -3,6 +3,7 @@ package com.example.ddl.ui.hochladen;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -23,6 +24,9 @@ import androidx.fragment.app.Fragment;
 import com.example.ddl.Globals;
 import com.example.ddl.R;
 
+import java.io.File;
+import java.io.FileOutputStream;
+
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
@@ -34,7 +38,7 @@ public class HochladenFragment extends Fragment {
     private Button zuruecksetzen;
     private Button auswahl;
     private Button speichern;
-    private ImageView vorschaubild;
+    public static ImageView vorschaubild;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -68,9 +72,12 @@ public class HochladenFragment extends Fragment {
                 vorschaubild.setDrawingCacheEnabled(true);
                 vorschaubild.buildDrawingCache();
                 Globals.galerie[Globals.gcount] = Bitmap.createBitmap(vorschaubild.getDrawingCache());
-                //if (Globals.gcount < 7) {
+                if (Globals.gcount < 7) {
                     Globals.gcount++;
-                //}
+                }
+                else {
+                    Globals.gcount=0;
+                }
 
             }
         });
@@ -156,7 +163,24 @@ public class HochladenFragment extends Fragment {
         }
     }
 
+    private String saveToInternalStorage(Bitmap bitmapImage){
+        ContextWrapper cw = new ContextWrapper(getContext());
+        // path to /data/data/yourapp/app_data/imageDir
+        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+        // Create imageDir
+        File mypath=new File(directory,"bild"+Globals.gcount+".jpg");
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(mypath);
 
+            // Use the compress method on the BitMap object to write image to the OutputStream
+            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            fos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return directory.getAbsolutePath();
+    }
 
 
 }
