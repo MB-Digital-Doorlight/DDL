@@ -24,6 +24,6 @@
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.ddl.ui.notifications.NotificationsFragment"
-        android:label="Einstellungen"
+        android:label="notifications"
         tools:layout="@layout/fragment_notifications" />
 </navigation>

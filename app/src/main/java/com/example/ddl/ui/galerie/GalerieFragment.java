@@ -32,7 +32,6 @@ public class GalerieFragment extends Fragment {
     private ImageView bild8; private Button bb8;
 
 
-
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_galerie, container, false);
 
@@ -45,6 +44,13 @@ public class GalerieFragment extends Fragment {
         bild7 =root.findViewById(R.id.bild7); bb7 =root.findViewById(R.id.bb7);
         bild8 =root.findViewById(R.id.bild8); bb8 =root.findViewById(R.id.bb8);
 
+        if (Globals.firstVisit2){
+            for(int i = 0; i<=7; i++){
+                loadImageFromStorage( "/data/data/com.example.ddl/app_imageDir", i);
+                Globals.firstVisit2=false;
+            }
+        }
+
         bild1.setImageBitmap(Globals.galerie[0]);
         bild2.setImageBitmap(Globals.galerie[1]);
         bild3.setImageBitmap(Globals.galerie[2]);
@@ -53,6 +59,10 @@ public class GalerieFragment extends Fragment {
         bild6.setImageBitmap(Globals.galerie[5]);
         bild7.setImageBitmap(Globals.galerie[6]);
         bild8.setImageBitmap(Globals.galerie[7]);
+
+
+
+
 
 
         bb1.setOnClickListener(new View.OnClickListener() {
@@ -154,11 +164,11 @@ public class GalerieFragment extends Fragment {
         return root;
     }
 
-    private void loadImageFromStorage(String path)
+    private void loadImageFromStorage(String path, int i)
     {
         try {
-            File f=new File(path, "bild"+Globals.gcount+".jpg");
-            Globals.galerie[Globals.gcount]= BitmapFactory.decodeStream(new FileInputStream(f));
+            File f=new File(path, "bild"+i+".jpg");
+            Globals.galerie[i]= BitmapFactory.decodeStream(new FileInputStream(f));
         }
         catch (FileNotFoundException e)
         {

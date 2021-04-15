@@ -72,6 +72,7 @@ public class HochladenFragment extends Fragment {
                 vorschaubild.setDrawingCacheEnabled(true);
                 vorschaubild.buildDrawingCache();
                 Globals.galerie[Globals.gcount] = Bitmap.createBitmap(vorschaubild.getDrawingCache());
+                saveToInternalStorage(Globals.galerie[Globals.gcount]);
                 if (Globals.gcount < 7) {
                     Globals.gcount++;
                 }
