@@ -1,5 +1,5 @@
 
-package com.example.ddl.ui.dashboard;
+package com.example.ddl.ui.hochladen;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -27,7 +27,7 @@ import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
 
-public class DashboardFragment extends Fragment {
+public class HochladenFragment extends Fragment {
 
 
     private Button button2;
@@ -38,7 +38,7 @@ public class DashboardFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_hochladen, container, false);
         button2 = root.findViewById(R.id.button2);
         button = root.findViewById(R.id.button);
         button3 = root.findViewById(R.id.button3);
