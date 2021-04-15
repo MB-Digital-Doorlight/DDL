@@ -30,31 +30,48 @@ import static android.app.Activity.RESULT_OK;
 public class HochladenFragment extends Fragment {
 
 
-    private Button button2;
-    private Button button;
-    private Button button3;
-    private ImageView imageView;
+    private Button hochladen;
+    private Button zuruecksetzen;
+    private Button auswahl;
+    private Button speichern;
+    private ImageView vorschaubild;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_hochladen, container, false);
-        button2 = root.findViewById(R.id.button2);
-        button = root.findViewById(R.id.button);
-        button3 = root.findViewById(R.id.button3);
-        imageView=root.findViewById(R.id.imageView2);
-        button3.setOnClickListener(new View.OnClickListener() {
+        hochladen = root.findViewById(R.id.hochladen);
+        zuruecksetzen = root.findViewById(R.id.zuruecksetzen);
+        auswahl = root.findViewById(R.id.auswahl);
+        speichern = root.findViewById(R.id.speichern);
+        vorschaubild =root.findViewById(R.id.vorschaubild);
+
+
+        auswahl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 selectImage(getContext());
             }
         });
 
-        button.setOnClickListener(new View.OnClickListener() {
+        zuruecksetzen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                imageView.setImageResource(R.drawable.stern);
+                vorschaubild.setImageResource(R.drawable.stern);
                 Globals.reset=true;
+            }
+        });
+
+        speichern.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                vorschaubild.setDrawingCacheEnabled(true);
+                vorschaubild.buildDrawingCache();
+                Globals.galerie[Globals.gcount] = Bitmap.createBitmap(vorschaubild.getDrawingCache());
+                //if (Globals.gcount < 7) {
+                    Globals.gcount++;
+                //}
+
             }
         });
 
@@ -70,7 +87,7 @@ public class HochladenFragment extends Fragment {
         }
         else {
             if (Globals.vorschau != null && Globals.reset==false) {
-                imageView.setImageBitmap(Globals.vorschau);
+                vorschaubild.setImageBitmap(Globals.vorschau);
             }
         }
     }
@@ -110,9 +127,10 @@ public class HochladenFragment extends Fragment {
                 case 0:
                     if (resultCode == RESULT_OK && data != null) {
                         Globals.vorschau = (Bitmap) data.getExtras().get("data");
-                        imageView.setImageBitmap(Globals.vorschau);
+                        vorschaubild.setImageBitmap(Globals.vorschau);
                         Globals.reset=false;
                     }
+
 
                     break;
                 case 1:
@@ -127,7 +145,7 @@ public class HochladenFragment extends Fragment {
                                 int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                                 String picturePath = cursor.getString(columnIndex);
                                 Globals.vorschau=BitmapFactory.decodeFile(picturePath);
-                                imageView.setImageBitmap(Globals.vorschau);
+                                vorschaubild.setImageBitmap(Globals.vorschau);
                                 Globals.reset=false;
                                 cursor.close();
                             }
@@ -137,6 +155,8 @@ public class HochladenFragment extends Fragment {
             }
         }
     }
+
+
 
 
 }
