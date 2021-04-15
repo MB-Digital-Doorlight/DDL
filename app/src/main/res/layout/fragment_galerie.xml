@@ -19,7 +19,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/grau"
+        app:strokeColor="@drawable/button_text_color"
         app:strokeWidth="1dp" />
 
     <Button
@@ -35,7 +35,8 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/bb1"
         app:layout_constraintTop_toTopOf="@+id/bb1"
-        app:strokeColor="@color/grau"
+        app:layout_constraintVertical_bias="1.0"
+        app:strokeColor="@drawable/button_text_color"
         app:strokeWidth="1dp" />
 
     <Button
@@ -49,7 +50,7 @@
         app:layout_constraintEnd_toEndOf="@+id/bb1"
         app:layout_constraintStart_toStartOf="@+id/bb1"
         app:layout_constraintTop_toBottomOf="@+id/bb1"
-        app:strokeColor="@color/grau"
+        app:strokeColor="@drawable/button_text_color"
         app:strokeWidth="1dp" />
 
     <Button
@@ -66,7 +67,7 @@
         app:layout_constraintStart_toEndOf="@+id/bb3"
         app:layout_constraintTop_toTopOf="@+id/bb3"
         app:layout_constraintVertical_bias="1.0"
-        app:strokeColor="@color/grau"
+        app:strokeColor="@drawable/button_text_color"
         app:strokeWidth="1dp" />
 
     <Button
@@ -80,7 +81,7 @@
         app:layout_constraintEnd_toEndOf="@+id/bb3"
         app:layout_constraintStart_toStartOf="@+id/bb3"
         app:layout_constraintTop_toBottomOf="@+id/bb3"
-        app:strokeColor="@color/grau"
+        app:strokeColor="@drawable/button_text_color"
         app:strokeWidth="1dp" />
 
     <Button
@@ -93,10 +94,11 @@
         android:insetBottom="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/bb5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.976"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/bb5"
         app:layout_constraintTop_toTopOf="@+id/bb5"
-        app:strokeColor="@color/grau"
+        app:layout_constraintVertical_bias="1.0"
+        app:strokeColor="@drawable/button_text_color"
         app:strokeWidth="1dp" />
 
     <Button
@@ -110,7 +112,7 @@
         app:layout_constraintEnd_toEndOf="@+id/bb5"
         app:layout_constraintStart_toStartOf="@+id/bb5"
         app:layout_constraintTop_toBottomOf="@+id/bb5"
-        app:strokeColor="@color/grau"
+        app:strokeColor="@drawable/button_text_color"
         app:strokeWidth="1dp" />
 
     <Button
@@ -123,11 +125,11 @@
         android:insetBottom="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/bb7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.976"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/bb7"
         app:layout_constraintTop_toTopOf="@+id/bb7"
         app:layout_constraintVertical_bias="1.0"
-        app:strokeColor="@color/grau"
+        app:strokeColor="@drawable/button_text_color"
         app:strokeWidth="1dp" />
 
     <ImageView
