@@ -95,6 +95,7 @@ public class HochladenFragment extends Fragment {
         }
         else {
             if (Globals.vorschau != null && Globals.reset==false) {
+                System.out.println("TESTESTEST");
                 vorschaubild.setImageBitmap(Globals.vorschau);
             }
         }
@@ -166,14 +167,11 @@ public class HochladenFragment extends Fragment {
 
     private String saveToInternalStorage(Bitmap bitmapImage){
         ContextWrapper cw = new ContextWrapper(getContext());
-        // path to /data/data/yourapp/app_data/imageDir
         File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
-        // Create imageDir
         File mypath=new File(directory,"bild"+Globals.gcount+".jpg");
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(mypath);
-
             // Use the compress method on the BitMap object to write image to the OutputStream
             bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
             fos.close();
