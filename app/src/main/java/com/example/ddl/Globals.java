@@ -11,4 +11,5 @@ public class Globals {
     public static boolean firstVisit2=true;
     public static boolean reset=false;
 
+
 }
