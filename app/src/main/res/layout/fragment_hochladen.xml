@@ -43,7 +43,7 @@
         app:iconTint="@drawable/button_text_color"
         app:layout_constraintBottom_toBottomOf="@+id/zuruecksetzen"
         app:layout_constraintEnd_toEndOf="@+id/hochladen"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/zuruecksetzen"
         app:layout_constraintTop_toTopOf="@+id/zuruecksetzen"
         app:layout_constraintVertical_bias="0.0"
@@ -106,10 +106,10 @@
         android:insetBottom="0dp"
         app:layout_constraintBottom_toTopOf="@+id/speichern"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.992"
+        app:layout_constraintVertical_bias="1.0"
         app:strokeColor="@drawable/button_text_color"
         app:strokeWidth="1dp" />
 
