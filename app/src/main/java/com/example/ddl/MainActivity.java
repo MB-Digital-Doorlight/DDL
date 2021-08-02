@@ -2,9 +2,13 @@ package com.example.ddl;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.Menu;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.TooltipCompat;
 import androidx.core.content.ContextCompat;
@@ -30,9 +34,7 @@ public class MainActivity extends AppCompatActivity {
         }catch (NullPointerException e){};
 
 
-
         BottomNavigationView navView = findViewById(R.id.nav_view);
-
 
 
 
@@ -46,7 +48,9 @@ public class MainActivity extends AppCompatActivity {
         */
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navView, navController);
+
     }
+
 
 }
 
