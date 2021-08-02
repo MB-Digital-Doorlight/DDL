@@ -27,8 +27,11 @@ import com.example.ddl.R;
 import java.io.File;
 import java.io.FileOutputStream;
 
+import org.jibble.simpleftp.*;
+
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
+
 
 
 public class HochladenFragment extends Fragment {
@@ -80,6 +83,19 @@ public class HochladenFragment extends Fragment {
                     Globals.gcount=0;
                 }
 
+            }
+        });
+
+        hochladen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                vorschaubild.setDrawingCacheEnabled(true);
+                vorschaubild.buildDrawingCache();
+                Globals.upload = Bitmap.createBitmap(vorschaubild.getDrawingCache());
+
+                try {
+                    simpleFTP ftp
+                }
             }
         });
 
@@ -139,8 +155,6 @@ public class HochladenFragment extends Fragment {
                         vorschaubild.setImageBitmap(Globals.vorschau);
                         Globals.reset=false;
                     }
-
-
                     break;
                 case 1:
                     if (resultCode == RESULT_OK && data != null) {

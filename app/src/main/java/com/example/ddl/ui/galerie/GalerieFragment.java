@@ -60,11 +60,6 @@ public class GalerieFragment extends Fragment {
         bild7.setImageBitmap(Globals.galerie[6]);
         bild8.setImageBitmap(Globals.galerie[7]);
 
-
-
-
-
-
         bb1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,8 +135,8 @@ public class GalerieFragment extends Fragment {
         bb7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Globals.galerie[7]!=null) {
-                    Globals.vorschau = Globals.galerie[7];
+                if (Globals.galerie[6]!=null) {
+                    Globals.vorschau = Globals.galerie[6];
                     Globals.reset=false;
                     NavController navController = Navigation.findNavController(root);
                     navController.navigate(R.id.action_navigation_galerie_to_navigation_hochladen);
@@ -167,12 +162,13 @@ public class GalerieFragment extends Fragment {
     private void loadImageFromStorage(String path, int i)
     {
         try {
-            File f=new File(path, "bild"+i+".jpg");
+            File f= new File(path, "bild"+i+".jpg");
             Globals.galerie[i]= BitmapFactory.decodeStream(new FileInputStream(f));
         }
         catch (FileNotFoundException e)
         {
             e.printStackTrace();
-        }}
+        }
+    }
 
 }
