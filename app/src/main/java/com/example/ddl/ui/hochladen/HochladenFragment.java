@@ -26,9 +26,6 @@ import com.example.ddl.R;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
-
-import org.jibble.simpleftp.*;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
@@ -69,6 +66,8 @@ public class HochladenFragment extends Fragment {
                 Globals.reset=true;
             }
         });
+
+
 
         speichern.setOnClickListener(new View.OnClickListener() {
             @Override
