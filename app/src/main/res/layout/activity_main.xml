@@ -26,6 +26,7 @@
         android:background="@color/white"
 
         app:itemIconTint="@drawable/bottom_navigation_selector"
+        app:itemRippleColor="#00000000"
         app:itemTextColor="@drawable/bottom_navigation_selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

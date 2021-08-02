@@ -26,6 +26,7 @@ import com.example.ddl.R;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
 import org.jibble.simpleftp.*;
 
@@ -92,10 +93,22 @@ public class HochladenFragment extends Fragment {
                 vorschaubild.setDrawingCacheEnabled(true);
                 vorschaubild.buildDrawingCache();
                 Globals.upload = Bitmap.createBitmap(vorschaubild.getDrawingCache());
-
+                /*
                 try {
-                    simpleFTP ftp
+
+                    SimpleFTP ftp = new SimpleFTP();
+                    ftp.connect();
+                    ftp.bin();
+                    ftp.cwd();
+                    ftp.stor(new File(Globals.upload));
+                    ftp.disconnect();
                 }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+                */
+
             }
         });
 
