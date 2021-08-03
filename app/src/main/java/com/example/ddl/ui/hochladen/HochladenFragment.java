@@ -130,6 +130,7 @@ public class HochladenFragment extends Fragment {
     }
 
 
+
     public void selectImage(Context context) {
         final CharSequence[] options = { "Kamera", "Galerie","Zurück" };
 
