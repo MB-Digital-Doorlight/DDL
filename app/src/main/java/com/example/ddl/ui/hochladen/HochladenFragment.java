@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Path;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -26,10 +27,12 @@ import com.example.ddl.R;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
+import org.jibble.simpleftp.SimpleFTP;
 
 
 public class HochladenFragment extends Fragment {
@@ -92,21 +95,22 @@ public class HochladenFragment extends Fragment {
                 vorschaubild.setDrawingCacheEnabled(true);
                 vorschaubild.buildDrawingCache();
                 Globals.upload = Bitmap.createBitmap(vorschaubild.getDrawingCache());
-                /*
+                saveToInternalStorage2(Globals.upload);
                 try {
 
                     SimpleFTP ftp = new SimpleFTP();
-                    ftp.connect();
+                    ftp.connect("192.168.70.53",21,"max","test");
+
                     ftp.bin();
-                    ftp.cwd();
-                    ftp.stor(new File(Globals.upload));
+                    ftp.cwd("");
+                    ftp.stor(new File("/data/data/com.example.ddl/app_imageDir/upload.jpg"));
                     ftp.disconnect();
                 }
                 catch (IOException e)
                 {
                     e.printStackTrace();
                 }
-                */
+
 
             }
         });
@@ -196,6 +200,22 @@ public class HochladenFragment extends Fragment {
         ContextWrapper cw = new ContextWrapper(getContext());
         File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
         File mypath=new File(directory,"bild"+Globals.gcount+".jpg");
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(mypath);
+            // Use the compress method on the BitMap object to write image to the OutputStream
+            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            fos.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return directory.getAbsolutePath();
+    }
+
+    private String saveToInternalStorage2(Bitmap bitmapImage){
+        ContextWrapper cw = new ContextWrapper(getContext());
+        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+        File mypath=new File(directory,"upload.jpg");
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(mypath);
