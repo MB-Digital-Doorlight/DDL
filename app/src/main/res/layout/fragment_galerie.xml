@@ -33,6 +33,7 @@
         android:insetBottom="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/bb1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toEndOf="@+id/bb1"
         app:layout_constraintTop_toTopOf="@+id/bb1"
         app:layout_constraintVertical_bias="0.0"

@@ -88,7 +88,6 @@ public class HochladenFragment extends Fragment {
                 vorschaubild.buildDrawingCache();
                 Globals.galerie[Globals.gcount] = Bitmap.createBitmap(vorschaubild.getDrawingCache());
                 saveToInternalStorage(Globals.galerie[Globals.gcount]);
-
                 Toast toast = Toast.makeText(getActivity(),
                         "Zu Favoriten hinzugefügt!", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
@@ -108,28 +107,13 @@ public class HochladenFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 LoadingDialog loadingDialog = new LoadingDialog(HochladenFragment.this);
-
                 loadingDialog.startLoadingDialog();
                 Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        loadingDialog.dismissDialog();;
-                    }
-                },0);
-
-                Toast toast = Toast.makeText(getActivity(),
-                        "Hochgeladen!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
-                toast.show();
-
 
                 vorschaubild.setDrawingCacheEnabled(true);
                 vorschaubild.buildDrawingCache();
                 Globals.upload = Bitmap.createBitmap(vorschaubild.getDrawingCache());
                 saveToInternalStorage2(Globals.upload);
-
-
 
 
                 FTPClient con = null;
@@ -146,7 +130,21 @@ public class HochladenFragment extends Fragment {
                         FileInputStream in = new FileInputStream(new File(data));
                         boolean result = con.storeFile("/upload.png", in);
                         in.close();
-                        if (result) Log.v("upload result", "succeeded");
+                        if (result)
+                        {
+                            Log.v("upload result", "succeeded");
+                            Toast toast = Toast.makeText(getActivity(),
+                                    "Hochgeladen!", Toast.LENGTH_SHORT);
+                            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    loadingDialog.dismissDialog();;
+                                    toast.show();
+                                }
+                            },1000);
+
+                        }
                         con.logout();
                         con.disconnect();
                     }
@@ -154,6 +152,9 @@ public class HochladenFragment extends Fragment {
                 catch (Exception e)
                 {
                     e.printStackTrace();
+                    Toast toast = Toast.makeText(getActivity(),
+                            "Hochladen fehlgeschlagen!", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
                 }
 
 
@@ -171,7 +172,7 @@ public class HochladenFragment extends Fragment {
             Globals.firstVisit=false;
         }
         else {
-            if (Globals.vorschau != null && Globals.reset==false) {
+            if (Globals.vorschau != null && !Globals.reset) {
                 vorschaubild.setImageBitmap(Globals.vorschau);
             }
         }
