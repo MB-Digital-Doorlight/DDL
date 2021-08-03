@@ -1,6 +1,9 @@
 
 package com.example.ddl.ui.hochladen;
 
+import static android.app.Activity.RESULT_CANCELED;
+import static android.app.Activity.RESULT_OK;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.ContextWrapper;
@@ -9,11 +12,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Path;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,12 +29,7 @@ import com.example.ddl.R;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 
-import static android.app.Activity.RESULT_CANCELED;
-import static android.app.Activity.RESULT_OK;
-
-import org.jibble.simpleftp.SimpleFTP;
 
 
 public class HochladenFragment extends Fragment {
@@ -98,25 +94,7 @@ public class HochladenFragment extends Fragment {
                 Globals.upload = Bitmap.createBitmap(vorschaubild.getDrawingCache());
                 saveToInternalStorage2(Globals.upload);
 
-                try {
-                    //System.out.println("test");
-                    Log.v("Test", "Test");
-                    SimpleFTP ftp = new SimpleFTP();
-                    Log.v("Test", "Test1");
-                    ftp.connect("192.168.70.53",21,"max","test");
-                    Log.v("Test", "Test2");
-                    ftp.bin();
-                    Log.v("Test", "Test3");
-                    ftp.cwd("web");
-                    Log.v("Test", "Test4");
-                    ftp.stor(new File("/data/data/com.example.ddl/app_imageDir/upload.jpg"));
-                    Log.v("Test", "Test5");
-                    ftp.disconnect();
-                }
-                catch (IOException e)
-                {
-                    e.printStackTrace();
-                }
+
 
 
             }
