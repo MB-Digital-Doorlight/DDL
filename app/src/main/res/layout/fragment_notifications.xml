@@ -6,6 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".ui.notifications.NotificationsFragment" >
 
+    <Switch
+        android:id="@+id/switch4"
+        android:layout_width="190dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="280dp"
+        android:fontFamily="@font/mbcorpos"
+        android:text="Nachtmodus"
+        app:layout_constraintEnd_toEndOf="@+id/switch1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/switch1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/hochladen5"
+        android:layout_width="356dp"
+        android:layout_height="92dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="@font/mbcorpos"
+        android:text="Verbundenes Auto ändern"
+        android:textColor="@drawable/button_text_color"
+        android:textSize="18sp"
+        android:tooltipText="Ändern des verbundenen Autos"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.773"
+        app:strokeColor="@drawable/button_text_color"
+        app:strokeWidth="1dp" />
+
+    <Switch
+        android:id="@+id/switch3"
+        android:layout_width="190dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/mbcorpos"
+        android:text="Benachrichtigungen"
+        app:layout_constraintBottom_toTopOf="@+id/hochladen5"
+        app:layout_constraintEnd_toEndOf="@+id/switch1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/switch1"
+        app:layout_constraintTop_toBottomOf="@+id/switch2" />
+
     <Button
         android:id="@+id/hochladen2"
         android:layout_width="356dp"
@@ -17,7 +65,7 @@
         android:fontFamily="@font/mbcorpos"
         android:textColor="@drawable/button_text_color"
         android:textSize="18sp"
-        android:tooltipText="Motiv hochladen"
+        android:tooltipText="Einstellungen übernehmen"
         app:icon="@drawable/upload"
         app:iconGravity="textStart"
         app:iconPadding="0dp"
@@ -36,44 +84,35 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="24dp"
         android:text="Einstellungen"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:ems="10"
-        android:inputType="time"
+        android:textColor="@color/grau"
+        android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.846"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
         android:id="@+id/switch1"
-        android:layout_width="wrap_content"
+        android:layout_width="190dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/mbcorpos"
         android:text="Farbschwächemodus"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.574"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.305" />
+        app:layout_constraintTop_toBottomOf="@+id/switch4" />
 
     <Switch
         android:id="@+id/switch2"
-        android:layout_width="174dp"
+        android:layout_width="190dp"
         android:layout_height="30dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/mbcorpos"
         android:text="Benachrichtigungen"
         app:layout_constraintEnd_toEndOf="@+id/switch1"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/switch1"
         app:layout_constraintTop_toBottomOf="@+id/switch1" />
 
