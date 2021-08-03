@@ -162,7 +162,7 @@ public class GalerieFragment extends Fragment {
     private void loadImageFromStorage(String path, int i)
     {
         try {
-            File f= new File(path, "bild"+i+".jpg");
+            File f= new File(path, "bild"+i+".png");
             Globals.galerie[i]= BitmapFactory.decodeStream(new FileInputStream(f));
         }
         catch (FileNotFoundException e)

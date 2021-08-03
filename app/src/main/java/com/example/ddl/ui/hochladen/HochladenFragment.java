@@ -108,9 +108,9 @@ public class HochladenFragment extends Fragment {
                     {
                         con.enterLocalPassiveMode(); // important!
                         con.setFileType(FTP.BINARY_FILE_TYPE);
-                        String data = "/data/data/com.example.ddl/app_imageDir/upload.jpg";
+                        String data = "/data/data/com.example.ddl/app_imageDir/upload.png";
                         FileInputStream in = new FileInputStream(new File(data));
-                        boolean result = con.storeFile("/upload.jpg", in);
+                        boolean result = con.storeFile("/upload.png", in);
                         in.close();
                         if (result) Log.v("upload result", "succeeded");
                         con.logout();
@@ -210,7 +210,7 @@ public class HochladenFragment extends Fragment {
     private String saveToInternalStorage(Bitmap bitmapImage){
         ContextWrapper cw = new ContextWrapper(getContext());
         File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
-        File mypath=new File(directory,"bild"+Globals.gcount+".jpg");
+        File mypath=new File(directory,"bild"+Globals.gcount+".png");
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(mypath);
@@ -226,7 +226,7 @@ public class HochladenFragment extends Fragment {
     private String saveToInternalStorage2(Bitmap bitmapImage){
         ContextWrapper cw = new ContextWrapper(getContext());
         File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
-        File mypath=new File(directory,"upload.jpg");
+        File mypath=new File(directory,"upload.png");
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(mypath);
