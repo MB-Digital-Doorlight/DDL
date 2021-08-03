@@ -13,6 +13,7 @@ import android.graphics.Path;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -96,14 +97,20 @@ public class HochladenFragment extends Fragment {
                 vorschaubild.buildDrawingCache();
                 Globals.upload = Bitmap.createBitmap(vorschaubild.getDrawingCache());
                 saveToInternalStorage2(Globals.upload);
+
                 try {
-
+                    //System.out.println("test");
+                    Log.v("Test", "Test");
                     SimpleFTP ftp = new SimpleFTP();
+                    Log.v("Test", "Test1");
                     ftp.connect("192.168.70.53",21,"max","test");
-
+                    Log.v("Test", "Test2");
                     ftp.bin();
-                    ftp.cwd("");
+                    Log.v("Test", "Test3");
+                    ftp.cwd("web");
+                    Log.v("Test", "Test4");
                     ftp.stor(new File("/data/data/com.example.ddl/app_imageDir/upload.jpg"));
+                    Log.v("Test", "Test5");
                     ftp.disconnect();
                 }
                 catch (IOException e)
