@@ -10,7 +10,7 @@
         android:id="@+id/bb1"
         android:layout_width="142dp"
         android:layout_height="142dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="445dp"
         android:backgroundTint="#00FFFFFF"
@@ -63,10 +63,10 @@
         android:insetBottom="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/bb3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.518"
         app:layout_constraintStart_toEndOf="@+id/bb3"
         app:layout_constraintTop_toTopOf="@+id/bb3"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         app:strokeColor="@drawable/button_text_color"
         app:strokeWidth="1dp" />
 
@@ -94,10 +94,10 @@
         android:insetBottom="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/bb5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toEndOf="@+id/bb5"
         app:layout_constraintTop_toTopOf="@+id/bb5"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         app:strokeColor="@drawable/button_text_color"
         app:strokeWidth="1dp" />
 
@@ -125,10 +125,10 @@
         android:insetBottom="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/bb7"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toEndOf="@+id/bb7"
         app:layout_constraintTop_toTopOf="@+id/bb7"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         app:strokeColor="@drawable/button_text_color"
         app:strokeWidth="1dp" />
 
@@ -157,10 +157,10 @@
         android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="@+id/bb2"
         app:layout_constraintEnd_toEndOf="@+id/bb2"
-        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/bb2"
         app:layout_constraintTop_toTopOf="@+id/bb2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/bild3"
