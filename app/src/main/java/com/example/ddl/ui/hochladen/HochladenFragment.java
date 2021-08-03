@@ -14,13 +14,16 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -69,6 +72,10 @@ public class HochladenFragment extends Fragment {
             public void onClick(View v) {
                 vorschaubild.setImageResource(R.drawable.stern);
                 Globals.reset=true;
+                Toast toast = Toast.makeText(getActivity(),
+                        "Zurückgesetzt!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
+                toast.show();
             }
         });
 
@@ -81,6 +88,12 @@ public class HochladenFragment extends Fragment {
                 vorschaubild.buildDrawingCache();
                 Globals.galerie[Globals.gcount] = Bitmap.createBitmap(vorschaubild.getDrawingCache());
                 saveToInternalStorage(Globals.galerie[Globals.gcount]);
+
+                Toast toast = Toast.makeText(getActivity(),
+                        "Zu Favoriten hinzugefügt!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
+                toast.show();
+
                 if (Globals.gcount < 7) {
                     Globals.gcount++;
                 }
@@ -94,10 +107,31 @@ public class HochladenFragment extends Fragment {
         hochladen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                LoadingDialog loadingDialog = new LoadingDialog(HochladenFragment.this);
+
+                loadingDialog.startLoadingDialog();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadingDialog.dismissDialog();;
+                    }
+                },0);
+
+                Toast toast = Toast.makeText(getActivity(),
+                        "Hochgeladen!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
+                toast.show();
+
+
                 vorschaubild.setDrawingCacheEnabled(true);
                 vorschaubild.buildDrawingCache();
                 Globals.upload = Bitmap.createBitmap(vorschaubild.getDrawingCache());
                 saveToInternalStorage2(Globals.upload);
+
+
+
+
                 FTPClient con = null;
                 try
                 {
