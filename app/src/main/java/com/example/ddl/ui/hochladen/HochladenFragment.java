@@ -15,6 +15,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,11 @@ import androidx.fragment.app.Fragment;
 import com.example.ddl.Globals;
 import com.example.ddl.R;
 
+import org.apache.commons.net.ftp.FTP;
+import org.apache.commons.net.ftp.FTPClient;
+
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 
@@ -93,9 +98,29 @@ public class HochladenFragment extends Fragment {
                 vorschaubild.buildDrawingCache();
                 Globals.upload = Bitmap.createBitmap(vorschaubild.getDrawingCache());
                 saveToInternalStorage2(Globals.upload);
+                FTPClient con = null;
+                try
+                {
+                    con = new FTPClient();
+                    con.connect("95.208.174.174");
 
-
-
+                    if (con.login("max", "test"))
+                    {
+                        con.enterLocalPassiveMode(); // important!
+                        con.setFileType(FTP.BINARY_FILE_TYPE);
+                        String data = "/data/data/com.example.ddl/app_imageDir/upload.jpg";
+                        FileInputStream in = new FileInputStream(new File(data));
+                        boolean result = con.storeFile("/upload.jpg", in);
+                        in.close();
+                        if (result) Log.v("upload result", "succeeded");
+                        con.logout();
+                        con.disconnect();
+                    }
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
 
 
             }
