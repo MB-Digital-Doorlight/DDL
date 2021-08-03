@@ -103,7 +103,7 @@ public class HochladenFragment extends Fragment {
                     Log.v("Test", "Test");
                     SimpleFTP ftp = new SimpleFTP();
                     Log.v("Test", "Test1");
-                    ftp.connect("192.168.70.53",21,"max","test");
+                    ftp.connect("95.208.174.174",21,"max","test");
                     Log.v("Test", "Test2");
                     ftp.bin();
                     Log.v("Test", "Test3");
