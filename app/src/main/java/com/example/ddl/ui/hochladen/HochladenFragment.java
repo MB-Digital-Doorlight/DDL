@@ -138,7 +138,6 @@ public class HochladenFragment extends Fragment {
         }
         else {
             if (Globals.vorschau != null && Globals.reset==false) {
-                System.out.println("TESTESTEST");
                 vorschaubild.setImageBitmap(Globals.vorschau);
             }
         }
