@@ -17,14 +17,16 @@
         android:textAllCaps="false"
         android:textColor="@drawable/button_text_color"
         android:textSize="18sp"
-        android:tooltipText="Motiv hochladen"
         app:icon="@drawable/wheel"
         app:iconPadding="8dp"
         app:iconSize="22dp"
         app:iconTint="@drawable/button_text_color"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hochladen9"
+        app:layout_constraintVertical_bias="0.0"
         app:strokeColor="@drawable/button_text_color"
         app:strokeWidth="1dp" />
 
@@ -39,7 +41,7 @@
         android:textAllCaps="false"
         android:textColor="@drawable/button_text_color"
         android:textSize="18sp"
-        android:tooltipText="Motiv hochladen"
+
         app:icon="@drawable/notifications"
         app:iconPadding="8dp"
         app:iconSize="22dp"
@@ -61,7 +63,6 @@
         android:textAllCaps="false"
         android:textColor="@drawable/button_text_color"
         android:textSize="18sp"
-        android:tooltipText="Motiv hochladen"
         app:icon="@drawable/camera"
         app:iconPadding="8dp"
         app:iconSize="22dp"
@@ -85,7 +86,6 @@
         android:textAllCaps="false"
         android:textColor="@drawable/button_text_color"
         android:textSize="18sp"
-        android:tooltipText="Motiv hochladen"
         app:icon="@drawable/question"
         app:iconPadding="8dp"
         app:iconSize="22dp"
@@ -93,72 +93,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:strokeColor="@drawable/button_text_color"
-        app:strokeWidth="1dp" />
-
-    <Switch
-        android:id="@+id/switch4"
-        android:layout_width="190dp"
-        android:layout_height="33dp"
-        android:layout_marginBottom="5dp"
-        android:fontFamily="@font/mbcorpos"
-        android:text="Nachtmodus"
-        app:layout_constraintBottom_toTopOf="@+id/switch1"
-        app:layout_constraintEnd_toEndOf="@+id/switch1"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/switch1" />
-
-    <Button
-        android:id="@+id/hochladen5"
-        android:layout_width="356dp"
-        android:layout_height="92dp"
-        android:backgroundTint="#FFFFFF"
-        android:fontFamily="@font/mbcorpos"
-        android:text="Verbundenes Auto ändern"
-
-        android:textColor="@drawable/button_text_color"
-        android:textSize="18sp"
-        android:tooltipText="Ändern des verbundenen Autos"
-        app:layout_constraintBottom_toTopOf="@+id/hochladen2"
-        app:layout_constraintEnd_toEndOf="@+id/hochladen2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/hochladen2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:strokeColor="@drawable/button_text_color"
-        app:strokeWidth="1dp" />
-
-    <Switch
-        android:id="@+id/switch3"
-        android:layout_width="190dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="5dp"
-        android:fontFamily="@font/mbcorpos"
-        android:text="Seniorenmodus"
-        app:layout_constraintBottom_toTopOf="@+id/hochladen5"
-        app:layout_constraintEnd_toEndOf="@+id/switch1"
-        app:layout_constraintStart_toStartOf="@+id/switch1" />
-
-    <Button
-        android:id="@+id/hochladen2"
-        android:layout_width="356dp"
-        android:layout_height="92dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:backgroundTint="#FFFFFF"
-        android:fontFamily="@font/mbcorpos"
-        android:textColor="@drawable/button_text_color"
-        android:textSize="18sp"
-        android:tooltipText="Einstellungen übernehmen"
-        app:icon="@drawable/upload"
-        app:iconGravity="textStart"
-        app:iconPadding="0dp"
-        app:iconSize="48dp"
-        app:iconTint="@drawable/button_text_color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:strokeColor="@drawable/button_text_color"
         app:strokeWidth="1dp" />
 
@@ -173,29 +107,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:fontFamily="@font/mbcorpos"
-        android:text="Stummmodus"
-        app:layout_constraintBottom_toTopOf="@+id/switch2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Switch
-        android:id="@+id/switch2"
-        android:layout_width="190dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="5dp"
-        android:fontFamily="@font/mbcorpos"
-        android:text="Benachrichtigungen"
-        app:layout_constraintBottom_toTopOf="@+id/switch3"
-        app:layout_constraintEnd_toEndOf="@+id/switch1"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/switch1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
