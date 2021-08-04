@@ -6,15 +6,10 @@ import android.view.LayoutInflater;
 import com.example.ddl.R;
 
 public class LoadingDialog {
-    HochladenFragment Context;
     AlertDialog dialog;
 
 
-    LoadingDialog(HochladenFragment myActivitiy){
-        Context = myActivitiy;
-    }
-
-    void startLoadingDialog(){
+    void startLoadingDialog(HochladenFragment Context){
         AlertDialog.Builder builder;
         builder = new AlertDialog.Builder(Context.getActivity());
         LayoutInflater inflater = Context.getLayoutInflater();

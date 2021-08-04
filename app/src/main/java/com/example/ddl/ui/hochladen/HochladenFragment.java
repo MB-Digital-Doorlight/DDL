@@ -16,7 +16,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,11 +30,7 @@ import androidx.fragment.app.Fragment;
 import com.example.ddl.Globals;
 import com.example.ddl.R;
 
-import org.apache.commons.net.ftp.FTP;
-import org.apache.commons.net.ftp.FTPClient;
-
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 
@@ -58,6 +53,17 @@ public class HochladenFragment extends Fragment {
         auswahl = root.findViewById(R.id.auswahl);
         speichern = root.findViewById(R.id.speichern);
         vorschaubild =root.findViewById(R.id.vorschaubild);
+
+        Toast toast2 = Toast.makeText(getActivity(),
+                "Hochgeladen!", Toast.LENGTH_SHORT);
+        toast2.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 300);
+
+        Toast toast3 = Toast.makeText(getActivity(),
+                "Hochladen fehlgeschlagen!", Toast.LENGTH_SHORT);
+        toast3.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 300);
+
+        Handler handler = new Handler();
+        LoadingDialog loadingDialog2 = new LoadingDialog();
 
 
         auswahl.setOnClickListener(new View.OnClickListener() {
@@ -106,21 +112,20 @@ public class HochladenFragment extends Fragment {
         hochladen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LoadingDialog loadingDialog = new LoadingDialog(HochladenFragment.this);
+                /*LoadingDialog loadingDialog = new LoadingDialog(HochladenFragment.this);
                 loadingDialog.startLoadingDialog();
-                Handler handler = new Handler();
+                FTPClient con = null;*/
 
                 vorschaubild.setDrawingCacheEnabled(true);
                 vorschaubild.buildDrawingCache();
                 Globals.upload = Bitmap.createBitmap(vorschaubild.getDrawingCache());
                 saveToInternalStorage2(Globals.upload);
 
+                UploadFile test = new UploadFile(HochladenFragment.this, handler, toast2, toast3, loadingDialog2);
+                test.execute();
 
-                FTPClient con = null;
 
-                
-
-                try
+                /*try
                 {
                     con = new FTPClient();
                     con.connect("10.3.141.1");
@@ -155,10 +160,8 @@ public class HochladenFragment extends Fragment {
                 catch (Exception e)
                 {
                     e.printStackTrace();
-                    Toast toast = Toast.makeText(getActivity(),
-                            "Hochladen fehlgeschlagen!", Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 300);
-                }
+
+                }*/
 
 
             }
