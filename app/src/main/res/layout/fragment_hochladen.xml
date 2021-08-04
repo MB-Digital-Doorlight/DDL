@@ -40,7 +40,7 @@
         android:fontFamily="@font/mbcorpos"
         android:textColor="@drawable/button_text_color"
         android:textSize="18sp"
-        android:tooltipText="Motiv zu Favoriten hinzüfugen"
+        android:tooltipText="Motiv zu Favoriten hinzufügen"
         app:icon="@drawable/gallery"
         app:iconGravity="textStart"
         app:iconPadding="0dp"
