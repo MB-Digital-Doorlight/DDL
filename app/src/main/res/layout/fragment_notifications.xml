@@ -4,7 +4,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.notifications.NotificationsFragment" >
+    tools:context=".ui.notifications.NotificationsFragment">
+
+    <Button
+        android:id="@+id/hochladen10"
+        android:layout_width="415dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="@font/mbcorpos"
+        android:text="Verknüpftes Fahrzeug"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="@drawable/button_text_color"
+        android:textSize="18sp"
+        android:tooltipText="Motiv hochladen"
+        app:icon="@drawable/wheel"
+        app:iconPadding="8dp"
+        app:iconSize="22dp"
+        app:iconTint="@drawable/button_text_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hochladen9"
+        app:strokeColor="@drawable/button_text_color"
+        app:strokeWidth="1dp" />
+
+    <Button
+        android:id="@+id/hochladen9"
+        android:layout_width="415dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="@font/mbcorpos"
+        android:text="Mitteilungen"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="@drawable/button_text_color"
+        android:textSize="18sp"
+        android:tooltipText="Motiv hochladen"
+        app:icon="@drawable/notifications"
+        app:iconPadding="8dp"
+        app:iconSize="22dp"
+        app:iconTint="@drawable/button_text_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hochladen8"
+        app:strokeColor="@drawable/button_text_color"
+        app:strokeWidth="1dp" />
+
+    <Button
+        android:id="@+id/hochladen8"
+        android:layout_width="415dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="@font/mbcorpos"
+        android:text="Anzeige"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="@drawable/button_text_color"
+        android:textSize="18sp"
+        android:tooltipText="Motiv hochladen"
+        app:icon="@drawable/camera"
+        app:iconPadding="8dp"
+        app:iconSize="22dp"
+        app:iconTint="@drawable/button_text_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hochladen3"
+        app:strokeColor="@drawable/button_text_color"
+        app:strokeWidth="1dp" />
+
+    <Button
+        android:id="@+id/hochladen3"
+        android:layout_width="415dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="@font/mbcorpos"
+        android:text="Hilfe"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        android:textColor="@drawable/button_text_color"
+        android:textSize="18sp"
+        android:tooltipText="Motiv hochladen"
+        app:icon="@drawable/question"
+        app:iconPadding="8dp"
+        app:iconSize="22dp"
+        app:iconTint="@drawable/button_text_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:strokeColor="@drawable/button_text_color"
+        app:strokeWidth="1dp" />
 
     <Switch
         android:id="@+id/switch4"
@@ -38,25 +128,6 @@
         app:strokeColor="@drawable/button_text_color"
         app:strokeWidth="1dp" />
 
-    <Button
-        android:id="@+id/hochladen3"
-        android:layout_width="186dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="5dp"
-
-        android:backgroundTint="#FFFFFF"
-        android:fontFamily="@font/mbcorpos"
-        android:text="Hilfe"
-        android:textColor="@drawable/button_text_color"
-        android:textSize="14sp"
-        android:tooltipText="Hilfe"
-        app:layout_constraintBottom_toTopOf="@+id/switch4"
-        app:layout_constraintEnd_toEndOf="@+id/switch4"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/switch4"
-        app:strokeColor="@drawable/button_text_color"
-        app:strokeWidth="1dp" />
-
     <Switch
         android:id="@+id/switch3"
         android:layout_width="190dp"
@@ -66,7 +137,6 @@
         android:text="Seniorenmodus"
         app:layout_constraintBottom_toTopOf="@+id/hochladen5"
         app:layout_constraintEnd_toEndOf="@+id/switch1"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/switch1" />
 
     <Button
@@ -88,7 +158,6 @@
         app:iconTint="@drawable/button_text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:strokeColor="@drawable/button_text_color"
         app:strokeWidth="1dp" />
@@ -97,10 +166,10 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:text="Einstellungen"
         android:textColor="@color/grau"
-        android:textSize="48sp"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -114,7 +183,7 @@
         android:text="Stummmodus"
         app:layout_constraintBottom_toTopOf="@+id/switch2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.574"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Switch

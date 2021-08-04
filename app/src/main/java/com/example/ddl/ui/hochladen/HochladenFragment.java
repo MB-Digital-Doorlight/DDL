@@ -74,7 +74,7 @@ public class HochladenFragment extends Fragment {
                 Globals.reset=true;
                 Toast toast = Toast.makeText(getActivity(),
                         "Zurückgesetzt!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
+                toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 300);
                 toast.show();
             }
         });
@@ -90,7 +90,7 @@ public class HochladenFragment extends Fragment {
                 saveToInternalStorage(Globals.galerie[Globals.gcount]);
                 Toast toast = Toast.makeText(getActivity(),
                         "Zu Favoriten hinzugefügt!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
+                toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 300);
                 toast.show();
 
                 if (Globals.gcount < 7) {
@@ -120,7 +120,7 @@ public class HochladenFragment extends Fragment {
                 try
                 {
                     con = new FTPClient();
-                    con.connect("95.208.174.174");
+                    con.connect("10.3.141.1");
 
                     if (con.login("max", "test"))
                     {
@@ -135,7 +135,7 @@ public class HochladenFragment extends Fragment {
                             Log.v("upload result", "succeeded");
                             Toast toast = Toast.makeText(getActivity(),
                                     "Hochgeladen!", Toast.LENGTH_SHORT);
-                            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
+                            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 300);
                             handler.postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
@@ -154,7 +154,7 @@ public class HochladenFragment extends Fragment {
                     e.printStackTrace();
                     Toast toast = Toast.makeText(getActivity(),
                             "Hochladen fehlgeschlagen!", Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
+                    toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 300);
                 }
 
 
