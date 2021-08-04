@@ -43,6 +43,7 @@ public class UploadFile extends AsyncTask<Void, Void, Void> {
             con = new FTPClient();
             con.connect("10.3.141.1");
             if (con.login("max", "test")) {
+
                 con.enterLocalPassiveMode(); // important!
                 con.setFileType(FTP.BINARY_FILE_TYPE);
                 //String data = "/data/data/com.example.ddl/app_imageDir/upload.png";
@@ -57,6 +58,7 @@ public class UploadFile extends AsyncTask<Void, Void, Void> {
                 con.disconnect();
 
             }
+
         } catch (Exception e) {
             e.printStackTrace();
             Log.v("upload result", "failed");
@@ -74,6 +76,7 @@ public class UploadFile extends AsyncTask<Void, Void, Void> {
          }
          else
          {
+             success = false;
              handler.postDelayed(new Runnable() {
                  @Override
                  public void run() {
@@ -81,7 +84,7 @@ public class UploadFile extends AsyncTask<Void, Void, Void> {
                      toast.show();
                  }
              }, 1000);
-             success = false;
+
          }
     }
 
