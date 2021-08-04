@@ -8,7 +8,7 @@
 
     <Button
         android:id="@+id/hochladen10"
-        android:layout_width="415dp"
+        android:layout_width="0dp"
         android:layout_height="70dp"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="@font/mbcorpos"
@@ -23,7 +23,6 @@
         app:iconTint="@drawable/button_text_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hochladen9"
         app:layout_constraintVertical_bias="0.0"
@@ -32,7 +31,7 @@
 
     <Button
         android:id="@+id/hochladen9"
-        android:layout_width="415dp"
+        android:layout_width="0dp"
         android:layout_height="70dp"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="@font/mbcorpos"
@@ -54,7 +53,7 @@
 
     <Button
         android:id="@+id/hochladen8"
-        android:layout_width="415dp"
+        android:layout_width="0dp"
         android:layout_height="70dp"
         android:backgroundTint="#FFFFFF"
         android:fontFamily="@font/mbcorpos"
@@ -68,7 +67,6 @@
         app:iconSize="22dp"
         app:iconTint="@drawable/button_text_color"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hochladen3"
         app:strokeColor="@drawable/button_text_color"
@@ -76,7 +74,7 @@
 
     <Button
         android:id="@+id/hochladen3"
-        android:layout_width="415dp"
+        android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginTop="32dp"
         android:backgroundTint="#FFFFFF"

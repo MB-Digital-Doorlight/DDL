@@ -117,6 +117,9 @@ public class HochladenFragment extends Fragment {
 
 
                 FTPClient con = null;
+
+                
+
                 try
                 {
                     con = new FTPClient();
