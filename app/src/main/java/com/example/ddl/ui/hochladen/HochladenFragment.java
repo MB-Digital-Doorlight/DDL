@@ -93,6 +93,7 @@ public class HochladenFragment extends Fragment {
                 vorschaubild.setDrawingCacheEnabled(true);
                 vorschaubild.buildDrawingCache();
                 Globals.galerie[Globals.gcount] = Bitmap.createBitmap(vorschaubild.getDrawingCache());
+                vorschaubild.setDrawingCacheEnabled(false);
                 saveToInternalStorage(Globals.galerie[Globals.gcount]);
                 Toast toast = Toast.makeText(getActivity(),
                         "Zu Favoriten hinzugefügt!", Toast.LENGTH_SHORT);
@@ -118,7 +119,10 @@ public class HochladenFragment extends Fragment {
 
                 vorschaubild.setDrawingCacheEnabled(true);
                 vorschaubild.buildDrawingCache();
+
+
                 Globals.upload = Bitmap.createBitmap(vorschaubild.getDrawingCache());
+                vorschaubild.setDrawingCacheEnabled(false);
                 saveToInternalStorage2(Globals.upload);
 
                 UploadFile test = new UploadFile(HochladenFragment.this, handler, toast2, toast3, loadingDialog2);
@@ -162,6 +166,7 @@ public class HochladenFragment extends Fragment {
                     e.printStackTrace();
 
                 }*/
+
 
 
             }

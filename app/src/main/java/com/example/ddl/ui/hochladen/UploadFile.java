@@ -77,13 +77,8 @@ public class UploadFile extends AsyncTask<Void, Void, Void> {
          else
          {
              success = false;
-             handler.postDelayed(new Runnable() {
-                 @Override
-                 public void run() {
-                     loadingDialog.dismissDialog();
-                     toast.show();
-                 }
-             }, 1000);
+             loadingDialog.dismissDialog();
+             toast.show();
 
          }
     }
