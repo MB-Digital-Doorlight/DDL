@@ -26,6 +26,7 @@
         app:layout_constraintStart_toStartOf="@+id/hochladen"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
+        app:rippleColor="@android:color/darker_gray"
         app:strokeColor="@drawable/button_text_color"
         app:strokeWidth="1dp" />
 
@@ -50,6 +51,7 @@
         app:layout_constraintStart_toEndOf="@+id/zuruecksetzen"
         app:layout_constraintTop_toTopOf="@+id/zuruecksetzen"
         app:layout_constraintVertical_bias="0.0"
+        app:rippleColor="@android:color/darker_gray"
         app:strokeColor="@drawable/button_text_color"
         app:strokeWidth="1dp" />
 
@@ -73,6 +75,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="@android:color/darker_gray"
         app:strokeColor="@drawable/button_text_color"
         app:strokeWidth="1dp" />
 
