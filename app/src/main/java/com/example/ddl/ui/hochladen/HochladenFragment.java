@@ -14,6 +14,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.Gravity;
@@ -25,14 +26,17 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
 import com.example.ddl.Globals;
 import com.example.ddl.R;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-
+import java.io.IOException;
 
 
 public class HochladenFragment extends Fragment {
@@ -42,7 +46,8 @@ public class HochladenFragment extends Fragment {
     private Button zuruecksetzen;
     private Button auswahl;
     private Button speichern;
-    public static ImageView vorschaubild;
+    public  static ImageView vorschaubild;
+
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -113,9 +118,7 @@ public class HochladenFragment extends Fragment {
         hochladen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*LoadingDialog loadingDialog = new LoadingDialog(HochladenFragment.this);
-                loadingDialog.startLoadingDialog();
-                FTPClient con = null;*/
+
 
                 vorschaubild.setDrawingCacheEnabled(true);
                 vorschaubild.buildDrawingCache();
@@ -128,44 +131,6 @@ public class HochladenFragment extends Fragment {
                 UploadFile test = new UploadFile(HochladenFragment.this, handler, toast2, toast3, loadingDialog2);
                 test.execute();
 
-
-                /*try
-                {
-                    con = new FTPClient();
-                    con.connect("10.3.141.1");
-
-                    if (con.login("max", "test"))
-                    {
-                        con.enterLocalPassiveMode(); // important!
-                        con.setFileType(FTP.BINARY_FILE_TYPE);
-                        String data = "/data/data/com.example.ddl/app_imageDir/upload.png";
-                        FileInputStream in = new FileInputStream(new File(data));
-                        boolean result = con.storeFile("/upload.png", in);
-                        in.close();
-                        if (result)
-                        {
-                            Log.v("upload result", "succeeded");
-                            Toast toast = Toast.makeText(getActivity(),
-                                    "Hochgeladen!", Toast.LENGTH_SHORT);
-                            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 300);
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    loadingDialog.dismissDialog();;
-                                    toast.show();
-                                }
-                            },1000);
-
-                        }
-                        con.logout();
-                        con.disconnect();
-                    }
-                }
-                catch (Exception e)
-                {
-                    e.printStackTrace();
-
-                }*/
 
 
 
@@ -204,7 +169,20 @@ public class HochladenFragment extends Fragment {
 
                 if (options[item].equals("Kamera")) {
                     Intent takePicture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(takePicture, 0);
+                    File photoFile = null;
+                    try {
+                        photoFile = createCameraFile();
+                    } catch (IOException ex) {
+
+                    }
+                    if (photoFile != null) {
+                        Uri photoURI = FileProvider.getUriForFile(getActivity(),
+                                "com.example.android.fileprovider",
+                                photoFile);
+                        takePicture.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                        startActivityForResult(takePicture, 0);
+                    }
+
 
                 } else if (options[item].equals("Galerie")) {
                     Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -223,8 +201,9 @@ public class HochladenFragment extends Fragment {
         if(resultCode != RESULT_CANCELED) {
             switch (requestCode) {
                 case 0:
-                    if (resultCode == RESULT_OK && data != null) {
-                        Globals.vorschau = (Bitmap) data.getExtras().get("data");
+                    if (resultCode == RESULT_OK && data == null) {
+                        //Globals.vorschau = (Bitmap) data.getExtras().get("data");
+                        loadImageFromStorage(Globals.cameraPath);
                         vorschaubild.setImageBitmap(Globals.vorschau);
                         Globals.reset=false;
                     }
@@ -283,6 +262,40 @@ public class HochladenFragment extends Fragment {
         }
         return directory.getAbsolutePath();
     }
+
+
+
+
+    private File createCameraFile() throws IOException {
+        // Create an image file name
+
+        String imageFileName = "camera";
+        File storageDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".png",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        Globals.cameraPath = image.getAbsolutePath();
+        return image;
+    }
+
+    private void loadImageFromStorage(String path)
+    {
+        try {
+            File f= new File(path);
+            Globals.vorschau= BitmapFactory.decodeStream(new FileInputStream(f));
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+
+
 
 
 }

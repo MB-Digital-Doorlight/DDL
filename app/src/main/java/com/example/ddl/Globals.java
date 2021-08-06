@@ -11,6 +11,7 @@ public class Globals {
     public static boolean firstVisit=true;
     public static boolean firstVisit2=true;
     public static boolean reset=false;
+    public static String cameraPath;
 
 
 
