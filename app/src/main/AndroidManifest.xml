@@ -10,9 +10,9 @@
         android:allowBackup="true"
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true"
-        android:icon="@mipmap/stern_icon"
+        android:icon="@mipmap/bastard"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/stern_icon_round"
+        android:roundIcon="@mipmap/bastard_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DDL">
         <activity
